@@ -19,6 +19,10 @@ enum SequenceType: CaseIterable {
 
 class GameScene: SKScene {
     
+    let popupTimeMultiple = 0.991
+    let chainDelayMultiple = 0.99
+    let physicsWorldSpeedMultiple: CGFloat = 1.02
+    
     var gameScore: SKLabelNode!
     
     var score = 0 {
@@ -335,9 +339,9 @@ class GameScene: SKScene {
     }
     
     func tossEnemies() {
-        popupTime *= 0.991
-        chainDelay *= 0.99
-        physicsWorld.speed *= 1.02
+        popupTime *= popupTimeMultiple
+        chainDelay *= chainDelayMultiple
+        physicsWorld.speed *= physicsWorldSpeedMultiple
         
         let sequenceType = sequence[sequencePosition]
         
